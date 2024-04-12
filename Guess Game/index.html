@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body><div class="div">
+    <h1 class="h1">Guess the number</h1>    
+    <center><input id="guess" type="number" placeholder="Enter Your Guess Number" ></center>
+    <center><button onclick="check()" ><b>Enter</b></button></center>
+    <p id="answer" ></p><br>
+    <p id="Enter"></p>
+    <p id="an" ></p><br>
+    <p id="score">Attempt:3</p>
+    <p id="Newgame"  onclick="window.location.reload();" ><b></b></p>
+  
+
+
+</div>
+
+    <script>
+          var guessnumber=document.getElementById("guess") 
+          var answer=document.getElementById("answer")
+          var score=document.getElementById("score")
+        
+          var randomnumber=Math.floor(Math.random()*10)+1
+
+
+          var tscore=3
+        
+
+          
+          function check()
+          {
+            var guessnumber=guess.value
+            if(randomnumber==guessnumber )
+            {
+                console.log("your guessing is Right")
+
+                answer.textContent="Congratulations ! your guessing is Right"
+                console.log("NewGame")
+                Newgame.textContent="NewGame"
+                score.remove()   
+            
+            }
+
+           
+          
+            else{    
+                tscore=tscore-1
+                score.textContent="Attempt:"+tscore
+
+                console.log("Sorry! You guessed the  wrong number...")
+                answer.textContent="Sorry! You guessed wrong number..."
+                
+                
+            
+                
+            }
+            if(tscore<=0 )
+            {
+                
+                console.log("Game Over😞" +"Answer is : "+ randomnumber)
+                answer.textContent="Game Over😞" 
+                an.textContent="Answer is : " + randomnumber
+                score.remove()   
+                console.log("NewGame")
+                Newgame.textContent="NewGame"
+
+             
+            }
+          
+            
+            else if(tscore=='1' && randomnumber!=guessnumber)
+            {
+                console.log("Sorry!  Again You guessed wrong number...")
+                answer.textContent="Sorry!  Again You guessed wrong number..."
+                
+
+            }
+         
+          
+          }
+         
+ 
+        
+            
+          addEventListener("keyup", (event)=>{
+
+            if(event.key==="Enter")
+            {
+                check()
+                guess.value="";
+
+            }
+
+            
+
+        })
+        
+
+    </script>
+
+</body>
+</html>
